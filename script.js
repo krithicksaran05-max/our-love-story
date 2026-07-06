@@ -131,6 +131,12 @@ function createHearts(){
 
 document.addEventListener("click",(e)=>{
 
+    const music = document.getElementById("bgMusic");
+
+if (music && music.paused) {
+    music.play().catch(() => {});
+}
+
     if(e.target.id==="startBtn"){
 
         // Start Button
