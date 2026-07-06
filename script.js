@@ -348,6 +348,12 @@ document.addEventListener("click",function(e){
 
 if(e.target.id==="yesBtn"){
 
+    confetti({
+    particleCount: 250,
+    spread: 180,
+    origin: { y: 0.6 }
+});
+
     fetch("/api/send", {
     method: "POST"
 })
