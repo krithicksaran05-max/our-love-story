@@ -342,6 +342,11 @@ document.addEventListener("click",function(e){
 
 if(e.target.id==="yesBtn"){
 
+    fetch("/api/send", {
+    method: "POST"
+})
+.catch(err => console.log(err));
+
 document.body.innerHTML=`
 
 <section id="yesPage">
