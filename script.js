@@ -131,12 +131,6 @@ function createHearts(){
 
 document.addEventListener("click",(e)=>{
 
-    const music = document.getElementById("bgMusic");
-
-if (music && music.paused) {
-    music.play().catch(() => {});
-}
-
     if(e.target.id==="startBtn"){
 
         // Start Button
@@ -348,37 +342,28 @@ document.addEventListener("click",function(e){
 
 if(e.target.id==="yesBtn"){
 
-    confetti({
-    particleCount: 250,
-    spread: 180,
-    origin: { y: 0.6 }
-});
+    launchCelebration();
 
-    fetch("/api/send", {
-    method: "POST"
-})
-.catch(err => console.log(err));
+    setTimeout(() => {
 
-document.body.innerHTML=`
+        fetch("/api/send", {
+            method: "POST"
+        }).catch(err => console.log(err));
+
+        document.body.innerHTML = `
 
 <section id="yesPage">
 
 <h1 class="yesTitle">
-
 She Said YES ❤️
-
 </h1>
 
 <h2>
-
 Thank You Haruuniiii 💙
-
 </h2>
 
 <p>
-
 This is the beginning of our forever...
-
 </p>
 
 <div class="heartRain"></div>
@@ -387,9 +372,9 @@ This is the beginning of our forever...
 
 `;
 
-createHeartRain();
+        createHeartRain();
 
-launchCelebration();
+    }, 1500);
 
 }
 
